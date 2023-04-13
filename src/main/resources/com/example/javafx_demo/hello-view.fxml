@@ -1,16 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import org.kordamp.bootstrapfx.BootstrapFX ?>
+<?import org.kordamp.bootstrapfx.scene.layout.Panel ?>
+<VBox alignment="CENTER" prefHeight="346.0"
+      prefWidth="655.0" spacing="20.0"
+      xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.example.javafx_demo.HelloController">
+<!--    引入bootstrapfx的css-->
+    <stylesheets>
+        <BootstrapFX fx:factory="bootstrapFXStylesheet"/>
+    </stylesheets>
+    <style>
+<!--        -fx-background-color: linear-gradient(to right,#00fffc,#fff600);-->
+        -fx-background-color:#ffffff
+    </style>
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
+   <children>
+<!--       网格体分两边-->
+      <GridPane prefHeight="428.0" prefWidth="615.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="459.0" minWidth="10.0" prefWidth="459.0" />
+            <ColumnConstraints />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+<!--          网格体左侧-->
+          <BorderPane GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <bottom>
+<!--                放一个VBOX，里面的东西竖直排列-->
+                  <VBox prefHeight="326.0" prefWidth="333.0" BorderPane.alignment="CENTER">
+                      <children>
+                          <ComboBox prefWidth="150.0">
+                              <items>
+                                  <FXCollections fx:factory="observableArrayList">
+                                      <String fx:value="三角形"/>
+                                      <String fx:value="万年历"/>
+                                      <String fx:value="员工考核"/>
+                                  </FXCollections>
+                              </items>
+                          </ComboBox>
+                          <Label fx:id="issueText" text="三角形问题" styleClass="h2"/>
+                          <Label text="判断三角形类型（用边界值分析和设计测试用例）" styleClass="p"/>
+                          <Label layoutX="10.0" layoutY="10.0" text="代码为" styleClass="lead"/>
+                          <ScrollPane>
+                              <content>
+                                  <VBox fx:id="Left" alignment="TOP_LEFT" prefWidth="200">
+                                      <children>
+                                          <Label alignment="center" text="g0x100 y123 z23"/>
+                                          <Label alignment="center" text="g0x121 y13 z23" />
+                                          <Label alignment="center" text="g0x10 y113 z23" />
+                                          <Label alignment="center" text="g0x100 y123 z23" />
+                                          <Label alignment="center" text="g0x100 y123 z23" />
+                                          <Label alignment="center" text="g0x100 y123 z23" />
+                                          <Label alignment="center" text="g0x100 y123 z23" />
+                                          <Label alignment="center" text="g0x100 y123 z23" />
+                                          <Label alignment="center" text="g0x121 y13 z23" />
+                                          <Label alignment="center" text="g0x10 y113 z23" />
+                                          <Label alignment="center" text="g0x100 y123 z23" />
+                                      </children>
+                                  </VBox>
+                              </content>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+                          </ScrollPane>
+                      </children>
+                  </VBox>
+            </bottom>
+          </BorderPane>
+
+<!--          网格体右侧-->
+          <BorderPane GridPane.columnIndex="1" GridPane.rowIndex="0">
+              <padding><Insets bottom="10" left="25" right="25" top="25" /></padding>
+              <bottom>
+                  <VBox prefHeight="326.0" prefWidth="333.0" BorderPane.alignment="CENTER">
+                      <children>
+
+                          <TextField text="请输入你的名字" fx:id="UserName"/>
+
+                          <Label text="请选择测试代码" style="-fx-padding: 30 5 10 5;"/>
+                          <Button onAction="#chooseCodeFile" text="选择文件" >
+                              <styleClass>
+                                  <String fx:value="btn"/>
+                                  <String fx:value="btn-success"/>
+                              </styleClass>
+                          </Button>
+                          <Label text="请选择测试用例" style="-fx-padding: 20 5 10 5;"/>
+                          <Button text="选择文件" onAction="#chooseTestCase">
+                              <styleClass>
+                                  <String fx:value="btn"/>
+                                  <String fx:value="btn-success"/>
+                              </styleClass>
+                          </Button>
+                          <Label text="开始测试" style="-fx-padding: 30 5 10 5;"/>
+                          <Button text="开始测试" onAction="#startTest">
+                              <styleClass>
+                                  <String fx:value="btn"/>
+                                  <String fx:value="btn-warning"/>
+                                  <String fx:value="btn-lg"/>
+                              </styleClass>
+                          </Button>
+                      </children>
+                  </VBox>
+              </bottom>
+          </BorderPane>
+
+
+          <padding><Insets bottom="10" left="25" right="25" top="25" /></padding>
+      </GridPane>
+   </children>
 </VBox>

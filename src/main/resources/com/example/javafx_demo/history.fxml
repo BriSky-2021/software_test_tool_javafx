@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <style>
+        -fx-background-color: #ffffff;
+    </style>
+    <children>
+
+        <VBox>
+            <children>
+                <Label alignment="CENTER" layoutX="124.0" layoutY="14.0" prefHeight="76.0" prefWidth="366.0" style="-fx-background-color: #a00;" text="查看测试历史" textFill="WHITE" AnchorPane.leftAnchor="124.0" AnchorPane.rightAnchor="110.0" AnchorPane.topAnchor="14.0">
+                </Label>
+
+                <HBox>
+                    <children>
+                        <TableView >
+                            <columns>
+                                <TableColumn  text="测试时间" />
+                                <TableColumn  text="测试人" />
+                                <TableColumn  text="测试结果" />
+                            </columns>
+                        </TableView>
+
+                        <TableView>
+                            <columns>
+                                <TableColumn text="测试输入" />
+                                <TableColumn text="实际输出" />
+                                <TableColumn text="预计结果" />
+                            </columns>
+                        </TableView>
+
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+
+
+
+    </children>
+</AnchorPane>

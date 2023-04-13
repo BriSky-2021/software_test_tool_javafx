@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.javafx_demo.BaseController"
+            prefHeight="500.0" prefWidth="600.0">
+
+    <VBox>
+        <children>
+            <HBox>
+                <children>
+                    <Button text="查看测试页面" onAction="#gotoHome"/>
+                    <Button text="查看历史页面" onAction="#gotoLog"/>
+                </children>
+            </HBox>
+
+            <StackPane fx:id="stackPane">
+            </StackPane>
+        </children>
+    </VBox>
+
+
+
+
+</AnchorPane>
